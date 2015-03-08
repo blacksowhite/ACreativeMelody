@@ -14,10 +14,8 @@ int main(int argc, const char * argv[]) {
     int temp[21]={0};
     int polynomial[21]={0};
     int power= 0;
-    //int NumofTerms = 0;
     int Power2Numofterms[10]={0,3,5,7,9,11,13,15,17,19};
     int iMulti = 0,iTempTerms = 0, iSrcTerms = 0, iCopy = 0;
-    //get the mount of case of the program 完成!!!
     int caseMount;
 
     scanf("%d",&caseMount);
@@ -28,9 +26,8 @@ int main(int argc, const char * argv[]) {
             temp[iCopy]=srcPoly[iCopy];
         }
         if (power == 1) {
-        printf("%d %d %d",srcPoly[2],srcPoly[1],srcPoly[0]);
+        printf("%d %d ",srcPoly[2],srcPoly[1]);
     }
-    //此段完成
         else{
             for (iMulti = 1; iMulti < power; iMulti++) {
                 for (iTempTerms = 0; iTempTerms < Power2Numofterms[iMulti]; iTempTerms++) {
@@ -38,7 +35,7 @@ int main(int argc, const char * argv[]) {
                         polynomial[iTempTerms+iSrcTerms] += srcPoly[iSrcTerms]*temp[iTempTerms];
                     }
                 }
-                //polynomial copied to temp
+                //polynomial[] copied to temp[]
                 for (iCopy = 0; iCopy < Power2Numofterms[iMulti] + 2; iCopy++) {
                     temp[iCopy] = polynomial[iCopy];
                     polynomial[iCopy] = 0;
