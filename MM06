@@ -30,9 +30,10 @@ int main(void){
             }
         }
         numofac = j;
-        for (j = 0; j<numofac;j++ ) {
+        for (j = 0; j<numofac-1;j++ ) {
             printf("%d ",fac[j]);
         }
+        printf("%d",fac[j]);
         printf("\n");
     }
     return 0;
