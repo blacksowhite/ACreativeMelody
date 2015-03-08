@@ -1,0 +1,53 @@
+//
+//  GCD.c
+//  ACM_Polynomials_AR02
+//
+//  Created by 丁 文凱 on 2015/3/8.
+//  Copyright (c) 2015年 丁 文凱. All rights reserved.
+//
+
+#include <stdio.h>
+#include <stdlib.h>
+int genGCD(int,int);
+
+int main(void){
+    
+    int caseMount=0,Q1=0,Q2=0,R1=0,R2=0,dividend=0,division=0,GCD=0,quot=0,remainder =0 ,j=0,fac[30]={0},numofac=0;
+    scanf("%d",&caseMount);
+    while (caseMount--) {
+        j=0;
+        scanf("%d %d %d %d",&Q1,&R1,&Q2,&R2);
+        Q1=Q1-R1;
+        Q2=Q2-R2;
+        dividend = Q1>Q2?Q1:Q2;
+        division = Q1>Q2?Q2:Q1;
+        GCD = genGCD(dividend,division);
+        for (int i = 1; i < GCD + 1; i++) {
+            quot = GCD/i;
+            remainder = GCD - quot * i;
+            if (remainder ==0) {
+                fac[j++] = i;
+            }
+        }
+        numofac = j;
+        for (j = 0; j<numofac;j++ ) {
+            printf("%d ",fac[j]);
+        }
+        printf("\n");
+    }
+    return 0;
+}
+int genGCD(int dividend,int division){
+    int quot = 0,remainder=0;
+    while (1) {
+        quot = dividend/division;
+        remainder = dividend - (quot * division);
+        if (remainder == 0){
+            return division;}
+        else {
+            dividend = division;
+            division = remainder;
+        }
+    }
+    return 0;
+}
