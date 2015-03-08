@@ -16,7 +16,7 @@ int main(int argc, const char * argv[]) {
     int power= 0;
     int Power2Numofterms[10]={0,3,5,7,9,11,13,15,17,19};
     int iMulti = 0,iTempTerms = 0, iSrcTerms = 0, iCopy = 0;
-    int caseMount;
+    int caseMount = 0;
 
     scanf("%d",&caseMount);
     while (caseMount--) {
@@ -42,7 +42,8 @@ int main(int argc, const char * argv[]) {
                 }
             }
         }
-        for (int i = Power2Numofterms[iMulti]; i > 1 ;i--) {
+        int i = Power2Numofterms[iMulti];
+        for (; i > 1 ;i--) {
             printf("%d ",temp[i-1]);
         }
         printf("%d",temp[0]);
